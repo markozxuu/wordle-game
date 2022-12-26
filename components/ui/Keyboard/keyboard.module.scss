@@ -1,0 +1,71 @@
+@mixin keybase {
+  background-color: #D3D6DA;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #56575E;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.keyboardContainer {
+  background-color:  rgba(218, 220, 224, 0.3);
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  //width: 570px;
+  width: 638px;
+  //padding: 2.8em;
+  @apply px-10 py-8;
+  margin: 0 auto;
+  gap: 9px;
+}
+
+.key {
+  @include keybase;
+  width: 44px;
+  height: 51px;
+}
+.emptyKey {
+  width: 20px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enterKey {
+  @include keybase;
+  width: 71px;
+  height: 51px;
+  font-size: 14px;
+  margin-left: -24px;
+}
+
+.deleteKey {
+  @include keybase;
+  width: 71px;
+  height: 51px;
+  color: #56575E;
+}
+
+.correct {
+  background-color: #4caf50;
+  border: #4caf50 solid 2px;
+  color: black;
+}
+
+.present {
+  background-color: #e5f321;
+  border: #e5f321 solid 2px;
+  color: black;
+}
+
+.absent {
+  background-color: #aaa;
+  border: #aaa solid 2px;
+  color: black;
+}

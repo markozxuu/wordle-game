@@ -1,0 +1,40 @@
+@import '@styles/variables.scss';
+
+@mixin box {
+  font-weight: 800;
+  width: $size;
+  height: $size;
+  border-radius: 5px;
+  @apply flex items-center justify-center text-white text-[35px];
+}
+
+.correct {
+  @include box;
+  @apply bg-accents-1 border border-accents-1;
+}
+
+.present {
+  @include box;
+  @apply bg-accents-2 border border-accents-2;
+}
+
+.absent {
+  @include box;
+  background-color: #aaa;
+  border: #aaa solid 2px;
+}
+
+.empty {
+  @include box;
+  color: orange;
+  @apply bg-box-ausent;
+}
+
+.edit {
+  @include box;
+  @apply border border-black text-black;
+}
+
+:global(.dark) .edit {
+  @apply border border-accents-3 text-white;
+}
