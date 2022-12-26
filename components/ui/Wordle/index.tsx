@@ -5,9 +5,8 @@ import useMeasure from 'react-use-measure'
 
 // Hooks
 import { useWindow } from '@hooks/useWindow'
-import { useCounter } from '@hooks/useCountdown'
 // Serivces
-import { isValidWord } from 'services/request'
+import { getWordFiveMinutes, isValidWord } from 'services/request'
 // Utils
 import { KEYBOARD_KEYS } from '@utils/const'
 // Types
@@ -19,8 +18,6 @@ import RowEmpty from '../Row/RowEmpty'
 import Keyboard from '../Keyboard'
 
 const Wordle = () => {
-  const [_, wordOfTheDay] = useCounter(300000)
-
   const [wordOfDay, setWordOfDay] = useState<string>('')
   const [currentWord, setCurrentWord] = useState<string>('')
   const [completedWords, setCompletedWords] = useState<string[]>([])
@@ -28,7 +25,7 @@ const Wordle = () => {
   const [gameStatus, setGameStatus] = useState<GameStatus>(GameStatus.Playing)
 
   useEffect(() => {
-    setWordOfDay(wordOfTheDay)
+    setWordOfDay(getWordFiveMinutes())
   }, [])
 
   const onKeyPressed = (key: string) => {
@@ -106,7 +103,7 @@ const Wordle = () => {
   return (
     <div ref={ref}>
       <div className="flex flex-col items-center justify-center mt-[87px]">
-        palabra del dia: {wordOfDay}
+        palabra del dia comienza con <b>{wordOfDay.slice(0, 1)}</b>
         {completedWords.map((word, _index) => (
           <RowCompleted key={_index} word={word} solution={wordOfDay} />
         ))}

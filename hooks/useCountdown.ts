@@ -22,7 +22,7 @@ function useInterval(callback, delay) {
 export function useCounter(initialTime) {
   const [counter, setCounter] = useState(initialTime)
   const counterRef = useRef(counter)
-  const [wordOfTheDay, setWordOfTheDay] = useState(WORDS[0])
+  const [wordOfTheDay, setWordOfTheDay] = useState(WORDS[2])
 
   useInterval(() => {
     if (counterRef.current <= 0) {
@@ -34,10 +34,6 @@ export function useCounter(initialTime) {
       counterRef.current -= 1000
     }
   }, 1000)
-
-  useEffect(() => {
-    localStorage.setItem('counter', counter)
-  }, [counter])
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60000)
@@ -59,7 +55,7 @@ export function useCounter(initialTime) {
 
   useEffect(() => {
     setWordOfTheDay(getRandomWord())
-  }, [counter])
+  }, [])
 
   return [formatTime(counter), wordOfTheDay]
 }
