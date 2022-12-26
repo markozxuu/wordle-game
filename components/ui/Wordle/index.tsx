@@ -103,7 +103,9 @@ const Wordle = () => {
   return (
     <div ref={ref}>
       <div className="flex flex-col items-center justify-center mt-[87px]">
-        palabra del dia comienza con <b>{wordOfDay.slice(0, 1)}</b>
+        <span className="mb-5">
+          palabra del dia comienza con <b>{wordOfDay.slice(0, 1)}</b>
+        </span>
         {completedWords.map((word, _index) => (
           <RowCompleted key={_index} word={word} solution={wordOfDay} />
         ))}

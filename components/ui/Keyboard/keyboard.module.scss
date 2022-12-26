@@ -24,11 +24,22 @@
   gap: 9px;
 }
 
+:global(.dark) .keyboardContainer {
+  background: rgba(218, 220, 224, 0.03);
+}
+
 .key {
   @include keybase;
   width: 44px;
   height: 51px;
 }
+
+
+:global(.dark) .key {
+  background: #565F7E;
+  color: white;
+}
+
 .emptyKey {
   width: 20px;
   height: 70px;
@@ -36,6 +47,17 @@
   align-items: center;
   justify-content: center;
 }
+
+:global(.dark) .enterKey {
+  background: #565F7E;
+  color: white;
+}
+
+:global(.dark) .deleteKey {
+  background: #565F7E;
+  color: white;
+}
+
 
 .enterKey {
   @include keybase;
